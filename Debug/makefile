@@ -6,7 +6,8 @@ CG_TOOL_ROOT := /home/vens/ti/ccsv6/tools/compiler/msp430_4.3.3
 
 ORDERED_OBJS += \
 $(GEN_CMDS__FLAG) \
-"./main.obj" \
+"./src/Spi.obj" \
+"./src/main.obj" \
 "../lnk_msp430g2553.cmd" \
 -l"libc.a" \
 
@@ -18,7 +19,9 @@ RMDIR := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include subdir_vars.mk
+-include src/subdir_vars.mk
 -include subdir_rules.mk
+-include src/subdir_rules.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
@@ -138,8 +141,9 @@ proto-1.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)$(BIN_OUTPUTS__QUOTED)
-	-$(RM) "main.pp" 
-	-$(RM) "main.obj" 
+	-$(RM) "src/Spi.pp" 
+	-$(RM) "src/main.pp" 
+	-$(RM) "src/Spi.obj" "src/main.obj" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

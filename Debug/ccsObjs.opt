@@ -1,1 +1,0 @@
-"./src/Spi.obj" "./src/main.obj" "../lnk_msp430g2553.cmd" -l"libc.a" 
